@@ -70,10 +70,8 @@ Player.prototype.handleInput = function(movement) {
 };
 
 Player.prototype.reset = function () {
-    if ( (enemy.x === player.x) && (enemy.y === player.y) ) {
     this.x = 200;
     this.y = 600;
-}
 }
 
 // Now instantiate your objects.

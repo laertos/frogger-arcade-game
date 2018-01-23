@@ -96,6 +96,17 @@ var Engine = (function(global) {
         player.update();
     }
 
+
+    //checkCollision will return the player in its reset position
+    //when player and enemy are on the same block simultaneously
+    function checkCollisions () {
+        allEnemies.forEach(function(enemy) {
+            if ((enemy.x === player.x) && (enemy.y === player.y)) {
+                player.reset();     
+            }
+        });   
+    }
+
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
      * game tick (or loop of the game engine) because that's how games work -
