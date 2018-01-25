@@ -2,7 +2,7 @@
 var Enemy = function(x, y, speed) {
     //initial position of enemy is offscreen
     this.x = -100; 
-    this.y = 100*(Math.ceil(3*Math.random()));
+    this.y = 75*(Math.ceil(3*Math.random()));
     // enemy speed is random from 50 to 150 units (may need to edit)
     this.speed = Math.random() * 100 + 50;
     // Variables applied to each of our instances go here,
@@ -21,8 +21,8 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x = this.x + this.speed * dt;
     //enemy is reset when it gets to the end of the canvas
-    if (this.x > 504) {
-        this.x = 0;
+    if (this.x > 505) {
+        this.x = -100;
     }
 };
 
@@ -34,10 +34,15 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function(x, y) {
+var Player = function() {
     this.x = 200;
-    this.y = 600;
+    this.y = 400;
     this.sprite = 'images/char-boy.png';
+}
+
+Player.prototype.update = function () {
+    this.x = 200;
+    this.y = 400;
 }
 
 Player.prototype.render = function() {
@@ -48,12 +53,12 @@ Player.prototype.handleInput = function(movement) {
     switch(movement) {
         case "up":
         if (this.y > 0){
-            this.y = this.y - 100;
+            this.y = this.y - 80;
         }
         break;   
         case "down":
-        if (this.y < 500){
-            this.y = this.y + 100;            
+        if (this.y < 400){
+            this.y = this.y + 80;            
         }
         break; 
         case "left":
@@ -67,11 +72,12 @@ Player.prototype.handleInput = function(movement) {
         }
         break;      
     }
+
 };
 
 Player.prototype.reset = function () {
     this.x = 200;
-    this.y = 600;
+    this.y = 400;
 }
 
 // Now instantiate your objects.

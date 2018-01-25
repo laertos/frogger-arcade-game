@@ -93,7 +93,9 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+         if ( Math.round(player.y / 80) === 0 ) {
         player.update();
+        }
     }
 
 
@@ -101,7 +103,7 @@ var Engine = (function(global) {
     //when player and enemy are on the same block simultaneously
     function checkCollisions () {
         allEnemies.forEach(function(enemy) {
-            if ((enemy.x === player.x) && (enemy.y === player.y)) {
+            if ( Math.round(enemy.x/100) === Math.round(player.x/100) && Math.round(enemy.y/80) === Math.round(player.y/80)) {
                 player.reset();     
             }
         });   
