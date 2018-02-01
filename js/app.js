@@ -53,22 +53,22 @@ Player.prototype.handleInput = function(movement) {
     switch(movement) {
         case "up":
         if (this.y > 0){
-            this.y = this.y - 80;
+            this.y = this.y - 83;
         }
         break;   
         case "down":
         if (this.y < 400){
-            this.y = this.y + 80;            
+            this.y = this.y + 83;            
         }
         break; 
         case "left":
         if (this.x > 0) {
-            this.x = this.x - 100;
+            this.x = this.x - 101;
         }
         break; 
         case "right":
         if (this.x < 400) {
-            this.x = this.x + 100;
+            this.x = this.x + 101;
         }
         break;      
     }
